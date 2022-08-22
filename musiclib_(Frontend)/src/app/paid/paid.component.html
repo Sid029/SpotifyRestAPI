@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn:hover{
+            background-color: #38d39f;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+</body>
+</html>
+<br><br><br><br>
+<h1 style="color: #38d39f;">User - {{auth.x}}'s purchased albums:</h1>
+<div class="table-responsive-sm">
+    <table class="table table-dark table-bordered table-hover thead-dark table-striped" id="myTable">
+        <thead>
+            <tr style="color: #38d39f; text-align: center;">
+                <td>#</td>
+                <td>Album Picture</td>
+                <td>Album Name</td>
+                <td>Artist Name</td>
+                <td>Release Date</td>
+                <td>Purchased Date/Time</td>
+                <td>Listen to Album</td>
+                <td>Favorite</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let purchase of purchasedalbums;index as index" style="color: white;text-align: center;align-items: center;">
+                <td *ngIf="purchase.uid==getid()">{{index+1}}.</td>
+                <td *ngIf="purchase.uid==getid()">
+                    <img src="{{purchase.photo_url}}" style="height: 140px;width:140px">
+                </td>
+                <td *ngIf="purchase.uid==getid()"><a href="album/{{purchase.album_id}}" style="text-decoration:none;color: white;text-align: center;align-items: center;">{{purchase.album_name}}</a></td>
+                <td *ngIf="purchase.uid==getid()">{{purchase.artist_name}}</td>
+                <td *ngIf="purchase.uid==getid()">{{purchase.release_date}}</td>
+                <td *ngIf="purchase.uid==getid()">{{purchase.purchase_date}}</td>
+                <td *ngIf="purchase.uid==getid()">
+                    <a href="album/{{purchase.album_id}}" class="btn" style="
+                                                background-color: rgba(0,0,0,0.1);
+                                                border: none;
+                                                width: 100%;
+                                                color: #1f1f1f;
+                                                font-weight: bolder;
+                                                padding: 5px 12px;
+                                                text-align: center;
+                                                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                                text-decoration: none;
+                                                display: inline-block;
+                                                font-size: 16px;
+                                                border:2px solid white;
+                                                border-radius: 10px;"><i class="fa fa-play" style="color: #38d39f;font-size:24px"></i>
+                        </a>
+                </td>
+                <td>
+                    <button style="background-color:transparent;border:none;color:white" (click)="favoriteclicked(purchase.album_id,purchase.album_name,purchase.uid,purchase.release_date,purchase.artist_name,purchase.purchase_date,purchase.photo_url,purchase.id,purchase.favorite)" *ngIf="purchase.favorite==false || purchase.favorite==null">
+                            <i style="font-size:24px" class="fa">&#xf004;</i>
+                    </button>
+                    <button style="background-color:transparent;border:none;color:rgb(229, 15, 15)" (click)="favoriteclicked(purchase.album_id,purchase.album_name,purchase.uid,purchase.release_date,purchase.artist_name,purchase.purchase_date,purchase.photo_url,purchase.id,purchase.favorite)" *ngIf="purchase.favorite==true">
+                        <i style="font-size:24px" class="fa">&#xf004;</i>
+                    </button>
+            </td>
+            </tr>
+        </tbody>
+    
+    </table>
+</div>

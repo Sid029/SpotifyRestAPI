@@ -1,0 +1,46 @@
+<br><br><br>
+<button (click)="back()"  class="btn-primary mt-3" style="background-color: #4CAF50; /* Green */
+                        border: none;
+                        width: 15%;
+                        color: rgb(255, 255, 255);
+                        padding: 5px;
+                        text-align: center;
+                        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 20px;
+                        border:2px solid white;
+                        border-radius: 10px;" type="button">Back to Playlist</button>    
+
+<br><br><br>
+<section class="p-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header text-white" style="background-color: #1f1f1f;">
+                            
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3" *ngFor="let cat of categoriesplay;index as index">
+                                    <a href="artist/{{cat.track.album.artists[0].id}}" style="text-decoration: none;">
+                                        <div class="card mt-3">
+                                            <img [src]="cat.track.album.images[0].url" alt="">
+                                            <div class="card-body text-white text-center" style="background: #1f1f1f;">
+                                                <p class="lead" style="color: white;font-size: 24px;">{{cat.track.album.name}}</p>
+                                                <p class="lead" style="color: white;font-size: 12px;">{{cat.track.album.artists[0].name}}</p>
+                                                <audio controls style="width:100%">
+                                                    <source [src]="cat.track.preview_url">
+                                                </audio>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

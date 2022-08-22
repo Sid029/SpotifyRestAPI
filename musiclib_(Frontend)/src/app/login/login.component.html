@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+<body>
+   
+    <div class="login-dark">
+        <form [formGroup]="form" (ngSubmit)="loginSubmitted()">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+            <span class="subtitle">Email address:</span>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="Email address" formControlName="email" autocomplete="off">
+            </div>
+            <span class="subtitle">Password:</span>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password" formControlName="password" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Log In</button>
+            </div>
+            <a href="#" class="forgot">Forgot your email or password?</a>
+        </form>
+    </div>
+
+ 
+</body>
+
+</html>

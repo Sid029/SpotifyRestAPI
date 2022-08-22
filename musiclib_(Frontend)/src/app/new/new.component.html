@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+</style>
+</head>
+<br><br><br><br>
+<h1 style="color: #38d39f;">New Releases:</h1>
+<body style="background-color: black;">
+    <div class="row" style="border: 200px;">
+
+        <div class="col">
+            <a style="text-decoration: none;" href="album/{{newreleases[0].id}}">
+                <img class="top1" [src]="newreleases[0].images[0].url">
+                <div class="di" style="background-color:#1f1f1f">
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[0].name}}</p>
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[0].artists[0].name}}</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col">
+            <a style="text-decoration: none;" href="album/{{newreleases[37].id}}">
+                <img class="top1" [src]="newreleases[37].images[0].url">
+                <div class="di" style="background-color:#1f1f1f">
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[37].name}}</p>
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[37].artists[0].name}}</p>
+                </div>
+            </a>
+        </div>
+        
+        <div class="col">
+            <a style="text-decoration: none;" href="album/{{newreleases[32].id}}">
+                <img class="top1" [src]="newreleases[32].images[0].url">
+                <div class="di" style="background-color:#1f1f1f">
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[32].name}}</p>
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[32].artists[0].name}}</p>
+                </div>
+            </a>
+        </div>
+        
+        <div class="col">
+            <a style="text-decoration: none;" href="album/{{newreleases[23].id}}">
+                <img class="top1" [src]="newreleases[23].images[0].url">
+                <div class="di" style="background-color:#1f1f1f">
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[23].name}}</p>
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[23].artists[0].name}}</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col">
+            <a style="text-decoration: none;" href="album/{{newreleases[24].id}}">
+            <img class="top1" [src]="newreleases[24].images[0].url">
+                <div class="di" style="background-color:#1f1f1f">
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[24].name}}</p>
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[24].artists[0].name}}</p>
+                </div>
+            </a>        
+        </div>
+
+        <div class="col">
+            <a style="text-decoration: none;" href="album/{{newreleases[5].id}}">
+            <img class="top1" [src]="newreleases[5].images[0].url">
+                <div class="di" style="background-color:#1f1f1f">
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[5].name}}</p>
+                    <p style="color: #38d39f;text-align:center ;"  class="top1">{{newreleases[5].artists[0].name}}</p>
+                </div>
+            </a>        
+        </div>
+
+    </div>
+    <br><br>
+           
+    <h1 style="color:#38d39f;text-align: center;">Latest Tracks</h1>
+            <p style="color: #38d39f;text-align: center;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore eaque debitis eligendi iure officia dolor laborum iusto sit. Pariatur, error excepturi. Perferendis, deleniti delectus! Error autem qui, natus recusandae blanditiis laborum sunt aliquam accusamus ipsam doloribus totam magnam possimus enim accusantium quibusdam, alias placeat cum. Labore velit ipsum perspiciatis cum sequi? Similique natus voluptatibus quo dolorum magnam nisi amet consequatur delectus quas repellendus officiis repudiandae sed alias est, sint enim veritatis id facilis eveniet sunt. Culpa quam placeat ab earum, eos ratione voluptatibus excepturi! Alias repellat adipisci error velit laborum sequi nostrum minima, exercitationem, dolorem saepe at explicabo nulla placeat?</p>
+
+    
+            <h1 style="text-align: center;color:#3bf1b4;font-size: 100px;">New Releases</h1>
+<div class="wrapper">
+    <div class="card mt-5" *ngFor="let newrelease of newreleases">
+<a href="album/{{newrelease.id}}">
+    <h5 style="text-align: center;background-color:#1f1f1f;color:#fafafa">{{newrelease.name}}</h5>
+    <h5 style="text-align: center;background-color:#1f1f1f;color:#12ff2d">{{newrelease.artists[0].name}}</h5>
+    <img [src]="newrelease.images[0].url">
+    <div class="descriptions">
+        <h1>{{newrelease.name}}</h1>
+        <h1>By {{newrelease.artists[0].name}}</h1>
+    </div>
+</a>    
+</div>  
+</div>  
+
+
+        
+    </body>
+    </html>

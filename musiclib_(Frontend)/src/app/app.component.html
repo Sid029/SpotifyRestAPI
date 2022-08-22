@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Musiclib</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Font Icon CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <style>
+    
+    .dropbtn {
+      width: 100%;
+      max-width: 100px;
+      background-color: #04aa6d00;
+      color: #38d39f;
+      border: none;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+    }
+    
+    .dropdown {
+      align-items: center;
+      position:relative;
+      float: right;
+      display:list-item;
+    }
+    
+    .dropdown-content {
+      background-color: black;
+      position: absolute;
+      text-align: center;
+      display: none;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      position: relative;
+      color: #38d39f;
+        display: inline-block;
+      align-items: center;
+      text-align: center;
+    }
+    
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    </style>
+    </head>
+    <body>
+      
+      <div class="topnav">
+        <a class="different" href="/login" *ngIf="AuthService.isAuthenticated" (click)="logout()" >Logout</a>
+        <div class="dropdown">
+          <button class="dropbtn"><a class="different"  *ngIf="AuthService.isAuthenticated==true" ><i class="bi bi-person-circle"></i></a></button>
+          <div class="dropdown-content">
+            <a class="different" href="/follow"  *ngIf="AuthService.isAuthenticated==true" >Following</a>
+            <br>
+            <a class="different" href="/fav"  *ngIf="AuthService.isAuthenticated==true" style="font-size: 18.4px;"> <i class="fa fa-heart" style="font-size:10px;"></i> Favorites</a>
+            <br>
+            <a class="different" href="/paid"  *ngIf="AuthService.isAuthenticated==true" >Purchased Albums</a>
+            <br>
+            <a class="different" href="/user"  *ngIf="AuthService.isAuthenticated==true" >User Profile</a>
+            <br>
+          </div>
+        </div>
+        <a class="different" href="/cat" >Categories</a>  
+        <a class="different" href="/spot" > <i class="fa fa-search"></i> Search for Artists </a>
+        <a class="different" href="/new" ><i class="fa fa-home"></i> Home</a>
+        <a href="home" style="float: left"> <img class="spotify-logo second-logo" src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" height="55px" alt="spotify-logo" style="cursor: pointer;float: left;;height:34px"></a>
+        <!-- <a  href="account/getmusic"  *ngIf="AuthService.isAuthenticated" >Music Library</a> -->
+        <!-- <a  href="account/shopping"  *ngIf="AuthService.isAuthenticated" ><i class="fa fa-shopping-cart" style="color:#38d39f"></i>Shopping Basket</a> -->
+        <a class="different" href="/register"  *ngIf="AuthService.isAuthenticated==false" >Sign-up</a>
+        <a class="different" href="/login"  *ngIf="AuthService.isAuthenticated==false" >Login </a>
+        <!-- <a  href="/account/home"  *ngIf="AuthService.isAuthenticated==true">Home</a> -->
+    </div>
+</body>
+<router-outlet></router-outlet>
+</html>

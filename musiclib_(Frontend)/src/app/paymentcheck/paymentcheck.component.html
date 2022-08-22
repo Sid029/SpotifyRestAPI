@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" type="text/css" href="http://cdn.dcodes.net/2/payment_icons/dc_payment_icons.css" />
+    <style>
+      select:invalid{
+          color: gray;
+      }
+      option{
+          color: black;
+      }
+  </style>
+</head>
+<body>
+  <br><br><br><br>
+<div class="flex-container">
+    <div class="content-container">
+      <div class="form-container">
+          <h2 style="text-align: center;color:#38d39f">Proceed with Payment</h2>
+          <br><br>
+          <span class="subtitle">Card number:</span>
+          <br>
+          <input required type="text" name="cardnumber" autocomplete="off" class="form-control" placeholder="Card Number"  [(ngModel)]="pi.cardnumber">
+          <br>
+          <span class="subtitle">Exp Month:</span>
+          <br>
+          <select required style="width: 290px;" [(ngModel)]="pi.expmonth">
+            <option value="" disabled selected hidden>Please select...</option>
+            <option>January</option>
+            <option>February</option>
+            <option>March</option>
+            <option>April</option>
+            <option>May</option>
+            <option>June</option>
+            <option>July</option>
+            <option>August</option>
+            <option>September</option>
+            <option>October</option>
+            <option>November</option>
+            <option>December</option>
+          </select>
+          <br><br>
+          <span class="subtitle">Exp Year:</span>
+          <br>
+          <input required placeholder="Expiration Year" [(ngModel)]="pi.expyear">
+          <br>
+          <span class="subtitle">CVC:</span>
+          <br>
+          <input required type="text" name="cvc" autocomplete="off" class="form-control" placeholder="CVC" [(ngModel)]="pi.cvc">
+          <br>
+          <span class="subtitle">Amount:</span>
+          <br>
+          <input type="number" name="value" disabled autocomplete="off"  class="form-control" placeholder="5.00 EUR" style="color: black;background-color:lightgray">
+          <p style="color: #38d39f;">Purchasing the following album:</p>
+          <p>{{this.album.album_name}} </p>
+          <p>{{this.album.release_date}} </p>
+          <p>-{{this.album.artist_name}} </p>
+
+          <form action="" [formGroup]="PurchaseForm">
+            <input type="hidden"  formControlName="uid">
+            <input type="hidden"  formControlName="album_id" value="{{this.album.album_id}}">
+            <input type="hidden"  formControlName="album_name" value="{{this.album.album_name}}">
+            <input type="hidden"  formControlName="release_date" value="{{this.album.release_date}}">
+            <input type="hidden"  formControlName="artist_name" value="{{this.album.album_name}}">
+            <input type="hidden"  formControlName="photo_url" value="{{this.album.photo_url}}">
+          </form>
+          
+          <img [src]="this.album.photo_url" class="img-fluid img-thumbnail" height="150px" width="200px">
+          <br>
+          <button type="submit" class="btn btn-secondary btn-lg btn-block"  (click)="paymentSubmitted()" style="width: 290px;height:10%;background-color: #38d39f;">Proceed</button>
+          
+          <br>
+          
+          <i class="fa fa-refresh fa-spin" style="font-size:24px;color:#38d39f" *ngIf="this.temp==true"></i>
+          <br>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

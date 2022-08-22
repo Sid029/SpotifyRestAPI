@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+html{
+    background-color: black;
+    color: #ccc;
+}
+
+body{
+    background: black;
+}
+
+.topnav .different{
+    border:none;
+    position: relative;
+  }
+  .topnav .different:hover{
+    border: none;
+  }
+  .different::after{
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 3px;
+    left: 50%;
+    bottom:0;
+    background-color: #38d39f;
+    transition: all ease-in-out .3s;
+  }
+
+  .different:hover::after{
+    width: 100%;
+    left: 0;
+  }

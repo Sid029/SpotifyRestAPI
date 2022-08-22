@@ -1,0 +1,30 @@
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  background: #1f1f1f;
+}
+
+.topnav a {
+  padding: 10px;
+  letter-spacing: 2px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  float:right;
+  color: #38d39f;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  align-items: right;
+}
+
+.topnav a:hover {
+  background-color: #121212;
+  color: #3bf1b4;
+    -webkit-transition: background-color 400ms linear;
+    -ms-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search tracks</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+    
+</body>
+</html>
+
+<p style="color:#3bf1b4 ;">Search for Tracks:</p>
+<input [(ngModel)]="searchQueryTrack" (keyup)="searchTracks()" type="search" name="TrackSearch" autocomplete="off">
+<h2 style="color: #3bf1b4;">Results for {{searchQueryTrack}}</h2>
+
+<div class="wrapper" >
+    <div class="card" *ngFor="let track of tracks">
+        <h1 style="text-align: center;background-color:#1f1f1f;color:#3bf1b4">{{track.name}}</h1>
+        <img [src]="track.images.url">
+        <div class="descriptions">
+            <h1>{{track.name}}</h1>
+            <p style=" font-family: 'Inder', sans-serif; line-height: 28px; margin-bottom: 15px; color: #ffffff;font-weight: 900;">
+                Followers : {{track.followers.total}}
+                <br>
+                Popularity : {{track.popularity}}
+                <br>
+            </p>
+            <ul class="tags" *ngFor="let gen of track.genres;index as index">
+                <li>
+                    <a class="tag">{{track.genres[index]}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>  
+

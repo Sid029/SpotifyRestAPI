@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        .btn:hover{
+            background-color: #38d39f;
+        }
+    </style> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+</body>
+</html>
+
+<h1>Purchased</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Album Name</td>
+            <td>Artist Name</td>
+            <td>Album Picture URL</td>
+            <td>Album Picture</td>
+            <td>Release Date</td>
+            <td>Purchased Date</td>
+            <td>Listen to Album</td>
+        </tr>
+    </thead>
+    <thead>
+        <tr *ngFor="let purchase of purchasedalbums;index as index">
+            <td *ngIf="getid() == purchase.uid">{{index+1}}</td>
+            <td *ngIf="getid() == purchase.uid">{{purchase.album_name}}</td>
+            <td *ngIf="getid() == purchase.uid">{{purchase.artist_name}}</td>
+            <td *ngIf="getid() == purchase.uid">{{purchase.photo_url}}</td>
+            <td>
+                <img [src]="purchase.photo_url" *ngIf="getid() == purchase.uid">
+            </td>
+            <td *ngIf="getid() == purchase.uid">{{purchase.release_date}}</td>
+            <td *ngIf="getid() == purchase.uid">
+                <a href="album/{{purchase.album_id}}" class="btn" ><i class="fa fa-play"></i></a>
+            </td>
+        </tr>
+    </thead>
+
+</table><p>testingdata works!</p>

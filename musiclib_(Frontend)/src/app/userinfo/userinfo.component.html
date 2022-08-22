@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <style>
+        .btn{
+            border-radius: 20px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        .btn:hover{
+            background-color: black;
+            transition: ease 0.8s;
+        }
+        .disabled{
+            background-color: #a49f9f;
+            color:black
+        }
+    </style>
+</body>
+</html>
+<br><br><br><br>
+
+<div class="container" style="background-color: #1f1f1f;border-radius:20px;width: 30%;">
+    <br><br>
+    <!-- <h2 style="text-align:center">User Profile - <span style="color:#38d39f">{{this.usertemp[this.getid()].username}}</span></h2><br><br> -->
+    <h2 style="text-align:center">User Profile - <span style="color:#38d39f">{{this.usertemp.username}}</span></h2><br><br>
+    <p style="text-align: center;" *ngIf="this.click==true">*If you want to update your information click on the update button</p>
+    <button style="color: black;background-color: #38d39f;border-color:#38d39f; width: 100%;color: black;"  class="btn" (click)="onButtonClick()" *ngIf="this.click==true">Update</button>&nbsp;&nbsp;
+    <form [formGroup]="UpdateForm">
+        <div class="card bg-dark text-white">
+            <div class="card-body">
+                <div class="col-md-12">
+                    <label for="name" class="col-form-label">Username:</label>
+                    <!-- <input class="form-control" value="{{usertemp[this.getid()].username}}" autocomplete="off" formControlName="username" >         -->
+                    <input class="form-control" value="{{usertemp.username}}" autocomplete="off" formControlName="username" >        
+                  </div>
+            </div>
+            <br>
+            <div class="card-body">
+                <div class="col-md-12">
+                    <label for="name" class="col-form-label">Email:</label>
+                    <!-- <input class="form-control" value="{{usertemp[this.getid()].email}}" autocomplete="off" formControlName="email">         -->
+                    <input class="form-control" value="{{usertemp.email}}" autocomplete="off" formControlName="email">        
+                  </div>
+            </div>
+            <br>
+            <div class="card-body">
+                <div class="col-md-12">
+                    <label for="name" class="col-form-label">Password:</label>
+                    <!-- <input class="form-control" value="{{usertemp[this.getid()].password}}" type="password"  autocomplete="off" formControlName="password">         -->
+                    <input class="form-control" value="{{usertemp.password}}" type="password"  autocomplete="off" formControlName="password">        
+                </div>
+            </div>
+            <!-- <input class="form-control" hidden value="{{usertemp[this.getid()].creationdate}}" type="text"  autocomplete="off" formControlName="cd">         -->
+            <input class="form-control" hidden value="{{usertemp.creationdate}}" type="text"  autocomplete="off" formControlName="cd">        
+            <br>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                    <button style="background-color: #38d39f;border-color:#38d39f; width: 100%;color: #1f1f1f;"  class="btn" (click)="UpdateFormSubmitted()"  *ngIf="this.click==false">
+                        <i class="fa fa-check" style="font-size:36px"></i>
+                    </button>
+                    <br><br>
+                    <button style="background-color:rgb(237, 64, 64);
+                        border-color: rgb(213, 213, 213);color:#1f1f1f;
+                        border-color:#38d39f; width: 100%;"  class="btn" (click)="onCancel()"  *ngIf="this.click==false">
+                    <i class="fa fa-close" style="font-size:36px"></i>
+                    </button>
+                    </div>
+                </div>
+        </div>
+    </form>
+  <br><br>
+  </div>

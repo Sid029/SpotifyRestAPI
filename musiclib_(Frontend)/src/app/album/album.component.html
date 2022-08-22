@@ -1,0 +1,63 @@
+<br><br><br>
+<section class="p-3">
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="col">
+                <div class="card">
+                    <div class="card-header text-white" style="background-color: #1f1f1f;">
+                        <div class="row align-items-center">
+
+                        <div class="col-md-2">
+                            <img [src]="this.album.photo_url" class="img-fluid img-thumbnail">
+                        </div>
+                        <!-- <div class="now playing" id="music">
+                            <span class="bar n1"></span>
+                            <span class="bar n2"></span>
+                            <span class="bar n3"></span>
+                            <span class="bar n4"></span>
+                            <span class="bar n5"></span>
+                            <span class="bar n6"></span>
+                            <span class="bar n7"></span>
+                            <span class="bar n8"></span>
+                        </div> -->
+                      
+                        <div class="col-md-10 mt-3 md-2">
+                            <h5 class="display-4">{{this.album.album_name}}</h5>
+                            <p><button onclick="toggle(this)"></button></p>
+                            <h3> Release Date: {{this.album.release_date | date : 'mediumDate'}} </h3>
+                            <button (click)="back()"  class="btn-primary mt-3" style="background-color: #4CAF50; /* Green */
+                            border: none;
+                            color: white;
+                            padding: 5px 32px;
+                            text-align: center;
+                            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            text-decoration: none;
+                            display: inline-block;
+                            font-size: 16px;
+                            border:2px solid white;
+                            border-radius: 10px;" type="button">Back</button>                        
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3" *ngFor="let track of tracks">
+                                <div class="card mt-3">
+                                    <div class="card-body text-white text-center" style="background: #1f1f1f;">
+                                        <p class="lead" style="color: #38d39f;">{{track.name}}</p>
+                                        <audio controls>
+                                            <source [src]="track.preview_url">
+                                        </audio>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+</section>
+

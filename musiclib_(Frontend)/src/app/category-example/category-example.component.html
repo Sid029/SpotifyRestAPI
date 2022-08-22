@@ -1,0 +1,39 @@
+<br><br><br>
+
+<div class="card mt-3" style="background-color: black;">
+<button (click)="back()"  class="btn-primary mt-3" style="background-color: #4CAF50; /* Green */
+                        border: none;
+                        width: 15%;
+                        color: rgb(255, 255, 255);
+                        padding: 5px;
+                        text-align: center;
+                        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 20px;
+                        border:2px solid white;
+                        border-radius: 10px;" type="button">Choose another Category</button>    
+                        </div>
+<br><br>
+<section class="p-3">
+    <div class="container-fluid">
+        <h1 style="color: white;">Playlists:</h1>
+        <div class="row" >
+            <div class="col">
+                <div class="row">
+                    <div class="col-md-3" *ngFor="let catalb of categories">
+                        <div class="card mt-3" style="background-color: #1f1f1f;">
+                            <a href="catplay/{{catalb.id}}" style="text-decoration:none;">
+                                <div class="card-body text-white text-center" style="border: 5px solid white;border-radius:5px">
+                                    <img [src]="catalb.images[0].url" class="img-fluid img-thumbnail">
+                                    <h2 style="color: white;">{{catalb.name}}</h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,122 @@
+<br><br><br>
+<section class="p-3">
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="col">
+                <div class="card">
+                    <div class="card-header text-white" style="background-color: #1f1f1f;">
+                        <div class="row" style="align-items: center;">
+                            <div class="col-md-2">
+                                <img [src]="this.artist.photo_url" class="img-fluid img-thumbnail" alt="" style="border-radius:150px;">
+                            </div>
+                            <div class="col-md-10">
+                                <h3 class="display-3">{{this.artist.name}}</h3>
+                                <p class="h3">Genre:</p>
+                                    <ul class="tags">
+                                        <li>
+                                            <a class="tag">{{this.artist.genre}}</a>
+                                        </li>
+                                    </ul>
+                                <p class="h3">
+                                    Followers: {{this.artist.followers | number}}
+                                </p>
+                                <div class="d">
+                                    <div class="test">
+
+                                        <button class="btn-primary mt-3" style="background-color: #4CAF50; /* Green */
+                                        border: none;
+                                        color: white;
+                                        padding: 5px 32px;
+                                        text-align: center;
+                                        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                        text-decoration: none;
+                                        display: inline-block;
+                                        font-size: 16px;
+                                        border:2px solid white;
+                                        border-radius: 10px;" type="button" (click)="FollowSubmitted(this.artist.name,this.artist.photo_url)" *ngIf="this.counter==false && auth.isAuthenticated==true">Follow</button>
+        
+                                        <button class="btn-primary mt-3" style="background-color: #1f1f1f; /* Green */
+                                        border: none;
+                                        color: white;
+                                        padding: 5px 32px;
+                                        text-align: center;
+                                        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                        text-decoration: none;
+                                        display: inline-block;
+                                        font-size: 16px;
+                                        border:2px solid white;
+                                        border-radius: 10px;" type="button" (click)="go()"  *ngIf="this.counter==true && auth.isAuthenticated==true">Following</button>
+                                        &nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+
+                                <button class="btn-primary mt-3" style="background-color: #4CAF50; /* Green */
+                                border: none;
+                                color: white;
+                                padding: 5px 32px;
+                                text-align: center;
+                                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                text-decoration: none;
+                                display: inline-block;
+                                font-size: 16px;
+                                border:2px solid white;
+                                border-radius: 10px;" type="button" (click)="back()">Back</button>
+
+                            </div>
+                        </div>
+                    </div>
+                        <div class="card-body" style="background-color: #1f1f1f;">
+                            <div class="row">
+                                <div class="col-md-3" *ngFor="let album of albums">
+                                    <div class="card mt-3" style="background-color: #1f1f1f;">
+                                        <div class="card-body text-white text-center" style="border: 5px solid white;border-radius:5px">
+                                            <img [src]="album.images[0].url" class="img-fluid img-thumbnail">
+                                            <p class="mt-2">{{album.name}}</p>
+                                            <p class="mt-2">Release Date: {{album.release_date}}</p>
+                                            <a href="album/{{album.id}}" class="btn btn-outline-white mt-2" style="background-color: rgba(0,0,0,0.1); /* Green */
+                                            border: none;
+                                            color: white;
+                                            padding: 5px 32px;
+                                            text-align: center;
+                                            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                            text-decoration: none;
+                                            display: inline-block;
+                                            font-size: 16px;
+                                            border:2px solid white;
+                                            border-radius: 10px;">Preview</a>
+                                            <a href="paymentcheck/{{album.id}}" class="btn btn-outline-white mt-2 " style="background-color: rgba(0,0,0,0.1); /* Green */
+                                            border: none;
+                                            color: white;
+                                            padding: 5px 32px;
+                                            text-align: center;
+                                            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                            text-decoration: none;
+                                            display: inline-block;
+                                            font-size: 16px;
+                                            margin-left: 45px;
+                                            border:2px solid white;
+                                            border-radius: 10px;" *ngIf="this.counter2==false">Buy</a>
+                                            <a href="paymentcheck/{{album.id}}" class="btn btn-outline-white mt-2 " style="background-color: #38d39f; /* Green */
+                                            border: none;
+                                            color: white;
+                                            padding: 5px 32px;
+                                            text-align: center;
+                                            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                            text-decoration: none;
+                                            display: inline-block;
+                                            font-size: 16px;
+                                            margin-left: 45px;
+                                            border:2px solid white;
+                                            border-radius: 10px;" *ngIf="this.counter2==true ">Bought</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    
+</section>

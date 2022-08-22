@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+
+        .input-icons i {
+            position: absolute;
+        }
+          
+        .input-icons {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+          
+        .icon {
+            padding: 10px;
+            min-width: 40px;
+            color: black;
+        }
+          
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    
+</body>
+</html>
+<br><br><br><br>
+<p style="color:#3bf1b4 ;">Search for artist:</p>
+
+<div class="input-icons">
+    <i class="fa fa-search icon"  style="font-size: 30px;" ></i>
+    <input class="input-field" [(ngModel)]="searchQuery" (keyup)="searchArtists()" type="search" name="ArtistSearch" autocomplete="off" placeholder="Search for Artists" style="height: 50px;width:20%;border-radius: 45px;background:#fff;color:black;border-color:#3bf1b4;font-family: Arial, Helvetica, sans-serif;font-size: larger;">
+</div>
+
+<h2 style="color: #3bf1b4;">Results for {{searchQuery}}</h2>
+    <div class="wrapper" >
+        <div class="card mt-5" *ngFor="let artist of artists">
+            <a href="/artist/{{artist.id}}">
+                <h1 style="text-align: center;background-color:#1f1f1f;color:#3bf1b4">{{artist.name}}</h1>
+                <img [src]="artist.images[0].url">
+                <div class="descriptions">
+                    <h1>{{artist.name}}</h1>
+                    <p style=" font-family: 'Inder', sans-serif;color: #ffffff;font-weight: 900;">
+                        Followers : {{artist.followers.total|number}}
+                        <br>
+                        Popularity : {{artist.popularity}}
+                        <br>
+                    </p>
+                    <ul class="tags" *ngFor="let gen of artist.genres;index as index">
+                        <li>
+                            <a class="tag">{{artist.genres[index]}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>  
+
+
+  

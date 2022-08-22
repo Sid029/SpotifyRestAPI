@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+<br><br><br><br>
+<body style="background: black;">
+    <div class="flex-container">
+        <div class="content-container">
+          <div class="form-container" style="background: #1e2833;">
+            <form [formGroup]="registerForm">
+              <h2 style="text-align: center;padding-bottom:30px;color:#38d39f">Sign up now</h2>
+              <span class="subtitle">Username*:</span>
+              <br>
+              <input type="text" name="username" value="" autocomplete="off" placeholder="What should we call you?" formControlName="username" required="required">
+              <br>
+              <span class="subtitle">Email*:</span>
+              <br>
+              <input type="email" name="email" value="" autocomplete="off" placeholder="Enter your Email." formControlName="email" required="required">
+              <br>
+              <span class="subtitle">Password*:</span>
+              <br>
+              <input type="password" name="password" value="" autocomplete="off" placeholder="Create a password." formControlName="password" required="required">
+              <br>
+              <span class="subtitle">Confirm Password*:</span><br>
+              <input type="password"  placeholder="Confirm password." formControlName="confirm_password" (change)="onPasswordChange()" />
+              <br>
+              <span class="subtitle">Do you want us to send you newsletter?:</span><br>
+              <input type="radio" style="color:#38d39f;" required>
+              <br>
+              <span *ngIf="confirm_password.hasError('mismatch')">Password do not match.</span>
+              <input type="submit" class="submit-btn" style="width: 100%;height:12%;color:black"  formControlName="submit" (click)="registerSubmitted()" placeholder="Submit" *ngIf="this.registerForm.value.email!='' && this.registerForm.value.email!='' && this.registerForm.value.password!='' && this.registerForm.value.confirm_password!='' ">
+            </form>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
